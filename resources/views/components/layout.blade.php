@@ -47,7 +47,6 @@
     </ul>
     <hr>
   </div>
-
         <div class="container">
             {{ $slot }}
         </div>
