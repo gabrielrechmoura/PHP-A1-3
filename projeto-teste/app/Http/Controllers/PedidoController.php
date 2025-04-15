@@ -2,86 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pedido;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class PedidoController extends Controller
+class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $pedidos = Pedido::orderBy('data', 'desc')->paginate(10);
-        return view('pedidos.index', compact('pedidos'));
+        $products = Product::with('category')->paginate(10);
+        return view('products.index', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('pedidos.create');
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'data' => 'required|date',
-            'quantidade_itens' => 'required|integer|min:1',
-            'total' => 'required|numeric|min:0'
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
-        Pedido::create($validated);
-
-        return redirect()->route('pedidos.index')
-                         ->with('success', 'Pedido criado com sucesso!');
+        Product::create($validated);
+        return redirect()->route('products.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Pedido $pedido)
+    public function edit(Product $product)
     {
-        return view('pedidos.show', compact('pedido'));
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Pedido $pedido)
-    {
-        return view('pedidos.edit', compact('pedido'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Pedido $pedido)
+    public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
-            'data' => 'required|date',
-            'quantidade_itens' => 'required|integer|min:1',
-            'total' => 'required|numeric|min:0'
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
-        $pedido->update($validated);
-
-        return redirect()->route('pedidos.index')
-                         ->with('success', 'Pedido atualizado com sucesso!');
+        $product->update($validated);
+        return redirect()->route('products.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Pedido $pedido)
+    public function destroy(Product $product)
     {
-        $pedido->delete();
-
-        return redirect()->route('pedidos.index')
-                         ->with('success', 'Pedido excluído com sucesso!');
+        $product->delete();
+        return redirect()->route('products.index');
     }
 }
