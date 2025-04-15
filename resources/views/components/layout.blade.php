@@ -47,6 +47,7 @@
           <a href="#" class="nav-link text-white">
             <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#table"></use></svg>
           Orders
+<<<<<<< HEAD
           </a>
         </li>
         <li>
@@ -65,6 +66,25 @@
       <hr>
     </div> -->
 
+=======
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#grid"></use></svg>
+          Products
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true"><use xlink:href="#people-circle"></use></svg>
+          Customers
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+>>>>>>> 9eda4e203a972ea5cc9c6233f5bbff372d91d889
         <div class="container">
             {{ $slot }}
         </div>
