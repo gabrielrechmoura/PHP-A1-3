@@ -10,9 +10,8 @@
 
     <header class="d-flex justify-content-center py-3 text-white" style="background-color:rgb(6, 37, 83);">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/alunos" class="nav-link" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="/one" class="nav-link">Incluir</a></li>
-        <li class="nav-item"><a href="/two" class="nav-link">Listar</a></li>
+        <li class="nav-item"><a href="/alunos" class="nav-link" aria-current="page">Alunos</a></li>
+        <li class="nav-item"><a href="/cursos" class="nav-link">Cursos</a></li>
       </ul>
     </header>
 
