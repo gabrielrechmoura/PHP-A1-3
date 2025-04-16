@@ -11,6 +11,7 @@
       </div>
       <div class="col-12 col-sm-4">
         Column 3
+        <x-alert type="warning" message="Alerta 3"/>
       </div>
     </div>
   </div>
