@@ -6,7 +6,7 @@ use Inertia\Inertia;
 
 Route::view('/', 'layouts.app');
 
-Route::view('/one', 'child-1');
+Route::view('/', 'child-1');
 Route::view('/two', 'child-2');
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
