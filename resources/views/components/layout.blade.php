@@ -15,15 +15,20 @@
       </a>
 
       <ul class="nav nav-pills">
+<<<<<<< HEAD
         <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+=======
+        <li class="nav-item"><a href="/two" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/one" class="nav-link">Features</a></li>
+>>>>>>> 79aa4a598bd62dcb4ebc5b110398ba655cbc552f
         <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
         <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
       </ul>
     </header>
 
-    
+
         <div class="container">
             {{ $slot }}
         </div>
