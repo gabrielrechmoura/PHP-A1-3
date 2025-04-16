@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,6 +18,8 @@ Route::put('/user/{user}', [UserController::class, 'update']);
 Route::delete('/user/{user}', [UserController::class, 'delete']);
 
 Route::resource('alunos', AlunoController::class);
+
+Route::resource('cursos', CursoController::class);
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
